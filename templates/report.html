@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Commit Review Report</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        .commit-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+            padding: 20px;
+            border-left: 6px solid #ccc;
+        }
+        /* Color Coding for Ratings */
+        .commit-card.excellent { border-left-color: #28a745; }
+        .commit-card.good { border-left-color: #ffc107; }
+        .commit-card.bad { border-left-color: #dc3545; }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .hash {
+            font-family: Consolas, Monaco, "Courier New", monospace;
+            background: #eee;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            margin-right: 10px;
+        }
+        .author {
+            font-weight: bold;
+            color: #555;
+        }
+        .badge {
+            padding: 5px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .badge.excellent { background: #d4edda; color: #155724; }
+        .badge.good { background: #fff3cd; color: #856404; }
+        .badge.bad { background: #f8d7da; color: #721c24; }
+        
+        .message {
+            font-size: 1.05em;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            white-space: pre-wrap;
+            color: #222;
+        }
+        .reasoning {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            color: #555;
+            border: 1px solid #e9ecef;
+        }
+        .reasoning strong {
+            color: #333;
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Commit Evaluation Report</h1>
+        
+        {% for commit in commits %}
+        <div class="commit-card {{ commit.rating | lower }}">
+            <div class="header">
+                <div>
+                    <span class="hash">{{ commit.hash[:8] }}</span>
+                    <span class="author">{{ commit.author }}</span>
+                </div>
+                <span class="badge {{ commit.rating | lower }}">{{ commit.rating }}</span>
+            </div>
+            <div class="message">{{ commit.message }}</div>
+            <div class="reasoning">
+                <strong>LLM Reasoning:</strong> 
+                {{ commit.reasoning }}
+            </div>
+        </div>
+        {% endfor %}
+        
+    </div>
+</body>
+</html>

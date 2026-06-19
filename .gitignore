@@ -1,0 +1,26 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments and Virtual Environments
+.env
+.venv
+venv/
+ENV/
+env/
+
+# IDE and Code Editors
+.vscode/
+.idea/
+
+# Operating System Files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Project-Specific Temporary Files or Outputs
+public/
+
+# Local Sandbox and Test Scripts
+test_edge_cases.py
