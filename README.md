@@ -56,7 +56,7 @@ python main.py
 **Run against a remote repository URL:**
 
 ```bash
-python main.py --url "https://github.com/better-auth/better-auth"
+python main.py --url "Insert Repo Link Here"
 
 ```
 
