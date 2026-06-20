@@ -18,7 +18,7 @@ Ensure you have Python 3.8+ installed on your system. It is recommended to use a
 1. Clone the repository and navigate to the project directory:
    ```bash
    git clone https://github.com/EyitoCODE/Git-commit-reviewer.git
-   cd git-reviewer
+   cd git-commit-reviewer
 
 
 2. Install the required dependencies:
